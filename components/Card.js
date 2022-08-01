@@ -29,4 +29,6 @@ const Card = ({ position }) => {
     )
 }
 
+// Dette er en test for Git
+
 export default Card
