@@ -1,0 +1,26 @@
+/* Header */
+.menu_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: rgba(255,255,255, 1);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+
+.list_item {
+    list-style: none;
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.list_item a {
+    text-decoration: none;
+    color: #555;
+    transition: all 0.3s ease 0s;
+}
+
+.list_item a:hover {
+    color: #b2dfdb;
+}
