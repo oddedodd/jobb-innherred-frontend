@@ -3,14 +3,8 @@ import styles from "../styles/Card.module.css";
 import Link from "next/link";
 
 const Card = ({ position }) => {
-    console.log(position.slug.current)
     return (
         <div className={styles.position_container}>
-            <Link href={`/stilling/${encodeURIComponent(position.slug.current)}`}>
-            <a><h2>{position.title}</h2></a>
-            </Link>
-            <p>Søknadsfrist: {new Date(position.expiresOn).toLocaleDateString('no-NO', {month: 'long', day: 'numeric', year: 'numeric'})}</p>
-
             <Link href={`/stilling/${encodeURIComponent(position.slug.current)}`}>
                 <a>
                 <img 
@@ -20,11 +14,13 @@ const Card = ({ position }) => {
                 />
                 </a>
             </Link>
-
+            <Link href={`/stilling/${encodeURIComponent(position.slug.current)}`}>
+            <a className={styles.titleLink}><h2 className={styles.title}>{position.title}</h2></a>
+            </Link>
             <div className="info-container">
-                <p>Arbeidsgiver: {position.employer}</p>
+                <p>{position.employer}</p>
             </div>
-
+           
         </div>
     )
 }

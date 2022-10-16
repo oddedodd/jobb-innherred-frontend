@@ -8,7 +8,7 @@ import DisplayPosition from "../../components/DisplayPosition";
 
 
 
-const Position = ({ title, mainImage, employerLogo, body }) => {
+const Position = ({ title, employer, mainImage, employerLogo, body, expiresOn }) => {
     
     return (
         <>
@@ -18,7 +18,7 @@ const Position = ({ title, mainImage, employerLogo, body }) => {
         </Head>
         <NavBar />
         <div className="position-container">
-            <DisplayPosition title={title} mainImage={mainImage} employerLogo={employerLogo} body={body} />
+            <DisplayPosition title={title} employer={employer} mainImage={mainImage} employerLogo={employerLogo} body={body} expiresOn={expiresOn}  />
         </div>
         </>
     )
@@ -53,15 +53,9 @@ export const getServerSideProps = async(pageContext) => {
                 employerLogo: position.employerLogo,
                 body: position.body,
                 publishedAt: position.publishedAt,
-                expiresOn: position.expiresOn
-                
+                expiresOn: position.expiresOn,                
             }
         }
     }
 }
-
-
-
-
-
 export default Position;

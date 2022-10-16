@@ -26,7 +26,7 @@ const Home = ({ positions }) => {
 
 export async function getServerSideProps({ preview = false}){
   const positions = await getClient(preview).fetch(groq`
-    *[_type == "position"] | order(publishedAt desc){
+    *[_type == "position" ] | order(publishedAt desc){
       _id,
       title,
       slug,
