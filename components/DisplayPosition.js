@@ -13,13 +13,16 @@ const ptComponents = {
           <img
             alt={value.alt || ' '}
             loading="lazy"
-            src={urlFor(value).width(980).height(300).fit('max').auto('format')}
+            className={styles.inlineImage}
+            src={urlFor(value)}
           />
         )
       }   
     }
     
   }
+
+/* .width(980).height(300).fit('max').auto('format') */
 
 const displayPosition = ({ title, employer, mainImage, employerLogo, body, expiresOn }) => {
 
@@ -46,7 +49,9 @@ const displayPosition = ({ title, employer, mainImage, employerLogo, body, expir
             components={ptComponents}
             />
         </div>
-        <p>Søknadsfrist: {new Date(expiresOn).toLocaleDateString('no-NO', {month: 'long', day: 'numeric', year: 'numeric'})}</p>
+        <div className={styles.dueDate}>
+          <p>Søknadsfrist: {new Date(expiresOn).toLocaleDateString('no-NO', {month: 'long', day: 'numeric', year: 'numeric'})}</p>
+        </div>
        </>
     )
 
