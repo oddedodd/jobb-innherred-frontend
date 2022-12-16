@@ -6,6 +6,7 @@ import Link from "next/link";
 import Card from "../components/Card";
 
 const Home = ({ positions }) => {
+  console.log(positions);
   return (
     <div className="dashboard">
       <Head>
@@ -15,9 +16,7 @@ const Home = ({ positions }) => {
       <Navbar />
         <div className="positions-container">
           {positions?.map((position) => (
-          
-                <Card position={position} />
-             
+            <Card position={position} />
           ))}
         </div>
     </div> 
@@ -25,8 +24,23 @@ const Home = ({ positions }) => {
 }
 
 export async function getServerSideProps({ preview = false}){
+  let today = new Date();
+  let dd = today.getDate();
+
+  let mm = today.getMonth()+1; 
+  const yyyy = today.getFullYear();
+  if(dd<10) {
+      dd=`0${dd}`;
+  } 
+
+  if(mm<10) {
+      mm=`0${mm}`;
+  }
+   
+  today = `${yyyy}-${mm}-${dd}`;
+
   const positions = await getClient(preview).fetch(groq`
-    *[_type == "position" ] | order(publishedAt desc){
+    *[_type == "position" && expiresOn >= "${today}"] | order(publishedAt desc){
       _id,
       title,
       slug,
@@ -36,12 +50,13 @@ export async function getServerSideProps({ preview = false}){
       publishedAt,
       expiresOn
     }
+  
   `)
   return {
     props: {
       positions,
     },
-  }
+  } 
 }
 
 export default Home;
