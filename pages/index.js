@@ -6,7 +6,7 @@ import Link from "next/link";
 import Card from "../components/Card";
 
 const Home = ({ positions }) => {
-  console.log(positions);
+  // console.log(positions);
   return (
     <div className="dashboard">
       <Head>
@@ -16,7 +16,7 @@ const Home = ({ positions }) => {
       <Navbar />
         <div className="positions-container">
           {positions?.map((position) => (
-            <Card position={position} />
+            <Card key={position._id} position={position} />
           ))}
         </div>
     </div> 
@@ -36,7 +36,7 @@ export async function getServerSideProps({ preview = false}){
   if(mm<10) {
       mm=`0${mm}`;
   }
-   
+
   today = `${yyyy}-${mm}-${dd}`;
 
   const positions = await getClient(preview).fetch(groq`
