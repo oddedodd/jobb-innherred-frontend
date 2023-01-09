@@ -10,7 +10,7 @@ const Home = ({ positions }) => {
   return (
     <div className="dashboard">
       <Head>
-        <title>Jobb i Namdalen - ledige stillinger fra namdalen</title>
+        <title>Jobb Innherred - ledige stillinger fra hele innherred</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Navbar />

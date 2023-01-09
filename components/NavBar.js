@@ -7,7 +7,7 @@ const NavBar = () => {
      <>
      <header className={styles.menu_container}>
         <Link href="/">
-            <a><Image src="/jin-logo.svg" alt="Jobb i Namdalen logo" width="200" height="50" className="logo"/></a>
+            <a><Image src="/jobb-innherred_logo.png" alt="Jobb i Innherred" width="300" height="30" className="logo"/></a>
         </Link>
         <nav>
             <ul>
