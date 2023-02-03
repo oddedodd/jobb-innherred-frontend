@@ -13,7 +13,7 @@ const Position = ({ title, employer, mainImage, employerLogo, body, expiresOn })
     return (
         <>
         <Head>
-            <title>Jobb i Namdalen - ledige stillinger fra namdalen</title>
+            <title>Jobb Innherred - {title} - {employer}</title>
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </Head>
         <NavBar />
