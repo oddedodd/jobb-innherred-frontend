@@ -20,7 +20,7 @@ const MyApp = ({ Component, pageProps }) => {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-VHQ0TTFV2S', {
+      gtag('config', 'xxxx', {
       page_path: window.location.pathname,
       });
       `,
@@ -32,3 +32,5 @@ const MyApp = ({ Component, pageProps }) => {
 }
 
 export default MyApp
+
+/* G-VHQ0TTFV2S */

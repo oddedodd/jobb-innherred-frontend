@@ -36,4 +36,13 @@
     height: 3px;
     border: 0;
 }
+/*
+MEDIA QUERIES
+*/
+
+@media(max-width: 600px){
+    .title {
+        font-size: 2em;
+    }
+}
 
