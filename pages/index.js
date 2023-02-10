@@ -40,7 +40,7 @@ export async function getServerSideProps({ preview = false}){
   today = `${yyyy}-${mm}-${dd}`;
 
   const positions = await getClient(preview).fetch(groq`
-    *[_type == "position" && expiresOn >= "${today}"] | order(publishedAt desc){
+    *[_type == "position" && expiresOn >= "${today}"] | order(_createdAt desc){
       _id,
       title,
       slug,
