@@ -20,7 +20,7 @@ const MyApp = ({ Component, pageProps }) => {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'xxxx', {
+      gtag('config', 'G-VHQ0TTFV2S', {
       page_path: window.location.pathname,
       });
       `,
