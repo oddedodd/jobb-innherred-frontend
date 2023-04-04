@@ -3,6 +3,7 @@ import { PortableText } from "@portabletext/react";
 import { urlFor } from "../../lib/sanity";
 import { getClient, sanityClient } from "../../lib/sanity.server";
 import Head from "next/head";
+import { NextSeo } from "next-seo";
 import NavBar from "../../components/NavBar";
 import DisplayPosition from "../../components/DisplayPosition";
 
@@ -12,10 +13,23 @@ const Position = ({ title, employer, mainImage, employerLogo, body, expiresOn })
     
     return (
         <>
-        <Head>
-            <title>Jobb Innherred - {title} - {employer}</title>
-            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        </Head>
+        <NextSeo
+            title="Jobb Innherred"
+            description={`${employer} søker ${title}`}
+            openGraph={{
+                type: 'website',
+                title: 'Jobb Innherred',
+                description: `${employer} søker ${title}`,
+                images: [
+                  {
+                    url: `${urlFor(mainImage)}`,
+                    width: 640,
+                    height: 360,
+                    alt: `${employer} søker ${title}`,
+                  }
+                ]
+              }}
+        />
         <NavBar />
         <div className="position-container">
             <DisplayPosition title={title} employer={employer} mainImage={mainImage} employerLogo={employerLogo} body={body} expiresOn={expiresOn}  />
